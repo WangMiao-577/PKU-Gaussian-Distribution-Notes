@@ -1,0 +1,91 @@
+% !TEX program = xelatex
+\documentclass[UTF8,fontset=none,11pt]{ctexart}
+
+% ---------- 字体（Linux，使用系统 Noto CJK） ----------
+\setCJKmainfont{Noto Serif CJK SC}[
+  BoldFont=Noto Serif CJK SC Bold,
+  ItalicFont=Noto Serif CJK SC,
+  ItalicFeatures={FakeSlant=0.2}
+]
+\setCJKsansfont{Noto Sans CJK SC}[BoldFont=Noto Sans CJK SC Bold]
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
+% ---------- 宏包 ----------
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+
+% ---------- 定理环境 ----------
+\theoremstyle{definition}
+\newtheorem{definition}{定义}[section]
+\newtheorem{example}[definition]{例}
+\newtheorem{remark}[definition]{注}
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{定理}
+\newtheorem{proposition}[definition]{命题}
+\newtheorem{lemma}[definition]{引理}
+\newtheorem{corollary}[definition]{推论}
+
+% ---------- 记号 ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\T}{\mathsf{T}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\vx}{\bm{x}}
+\newcommand{\vy}{\bm{y}}
+\newcommand{\vz}{\bm{z}}
+\newcommand{\vu}{\bm{u}}
+\newcommand{\vv}{\bm{v}}
+\newcommand{\vw}{\bm{w}}
+\newcommand{\vb}{\bm{b}}
+\newcommand{\vt}{\bm{t}}
+\newcommand{\veps}{\bm{\varepsilon}}
+\newcommand{\vmu}{\bm{\mu}}
+\newcommand{\vzero}{\bm{0}}
+\newcommand{\mSigma}{\bm{\Sigma}}
+\newcommand{\mLambda}{\bm{\Lambda}}
+\newcommand{\mA}{\bm{A}}
+\newcommand{\mB}{\bm{B}}
+\newcommand{\mC}{\bm{C}}
+\newcommand{\mD}{\bm{D}}
+\newcommand{\mI}{\bm{I}}
+\newcommand{\mL}{\bm{L}}
+\newcommand{\mM}{\bm{M}}
+\newcommand{\mQ}{\bm{Q}}
+\newcommand{\mS}{\bm{S}}
+\newcommand{\Normal}{\mathcal{N}}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\diag}{diag}
+
+\title{\textbf{两个高维随机变量的联合高斯分布}\\[0.4em]
+  {\large 表达式、推导与所需的线性代数}}
+\author{讲义}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+本讲义的目标是把下面这个问题讲透：设 $\vx\in\R^n$、$\vy\in\R^m$ 是两个高维随机向量，它们服从联合高斯分布，那么联合密度 $P(\vx,\vy)$ 长什么样？由它如何推出边缘分布 $P(\vx)$ 与条件分布 $P(\vy\mid\vx)$？推导中用到的核心工具是对称正定矩阵、分块矩阵与 Schur 补、矩阵形式的配方法，以及多重积分的换元公式。第~\ref{sec:la} 节系统地准备这些线性代数知识；第~\ref{sec:gauss} 节建立多元高斯分布；第~\ref{sec:joint} 节给出 $P(\vx,\vy)$ 的完整推导；第~\ref{sec:example} 节以二维情形和线性高斯模型为例说明结果。
+\end{abstract}
+
+\tableofcontents
+\bigskip
+
+\input{Sections/Notation-and-Conventions}
+
+\input{Sections/Linear-Algebra-Preliminaries}
+
+\input{Sections/Multivariate-Gaussian-Distribution}
+
+\input{Sections/Joint-Gaussian-Distribution}
+
+\input{Sections/Examples-and-Applications}
+
+\input{Sections/Summary}
+
+\end{document}
